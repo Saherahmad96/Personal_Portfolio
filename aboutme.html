@@ -1,0 +1,53 @@
+<html>
+
+    <head>
+        <script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+        <title>About Me</title>
+
+        <style>
+            body{
+                background-color: rgb(181, 201, 204);}
+
+            h1{          
+                text-align:center;           
+                font-size: 45px;
+                font-family: verdana;
+                Color: rgb(52, 51, 90);
+                border: 0.5px;}
+            p{
+                font-size: 30px;
+                Color: rgb(86, 79, 143);}
+        
+        </style>
+
+    </head>
+    
+    <body>
+        <div id="header" style="position: absolute; top: 10; left: 10; width: 95%;">
+            <div class="test">{{name}}</div>
+            <h1>About Me</h1>
+            <h2>I am an aspiring developer in hopes to reach an audience that is interested in this app in order to help themselves. I have a passion for creating and analyzing data. </h2>
+            <p id="example"></p>
+            <img src="me.jpg">
+            <a href="/home.html">Home Page</a>
+            <a href="/portfolio.html">Portfolio</a>
+            <a href="/contactform.html">Contact Form</a>
+
+
+        </div>
+    </body>
+    
+
+    <script>
+        var element_text = $(".test").text();  
+
+        $("#example").text(element_text);
+        $("#example").css({"font-size":"25px", "color":"purple"});
+
+        $('#example').click(function() {
+            $("div").remove();
+        });
+    
+    </script> 
+
+</html>

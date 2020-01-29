@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            $(button).click(function(){
+                $("#div1").fadeIn();
+                $("#div2").fadeIn();
+                $("#div3").fadeIn();
+                });
+                });
+        </script>   
+        <script> 
+            $(document).ready(function(){
+              $("#flip").click(function(){
+                $("#panel").slideDown("slow");
+              });
+            });
+        </script>     
+        <title>Homepage</title>
+        <style>
+            body{
+                background-color: rgb(181, 201, 204);}
+
+            h1{          
+                text-align:center;           
+                font-size: 45px;
+                font-family: verdana;
+                Color: rgb(52, 51, 90);
+                border: 0.5px;}
+            p{
+                font-size: 30px;
+                Color: rgb(86, 79, 143);}
+                
+            #panel, #flip{
+                padding: 5px;
+                text-align: center;
+                background-color: white;
+                border: solid 1px gray;
+                }
+                
+            #panel{
+                padding: 50px;
+                display: none;
+                }
+
+               
+            .flex-container{
+                display: flex;
+                background-color: lightblue;
+                }
+                
+            .flex-container > div{
+                background-color: #f1f1f1;
+                margin: 10px;
+                padding: 20px;
+                font-size: 30px;
+                }
+        </style>
+    </head>
+    <body>
+        <button>Click</button><br><br>
+        <div id="div1" style="width:80px;height:80px;display:none;background-color:white;"></div><br>
+        <div id="div2" style="width:80px;height:80px;display:none;background-color:black;"></div><br>
+        <div id="div3" style="width:80px;height:80px;display:none;background-color:gray;"></div>
+       
+        <div id="flip">Click for slide</div>
+        <div id="panel">Hello!</div>
+        
+        <div>
+            <id="header" style="position: absolute; top: 10; left: 10; width: 95%;">
+            <h1>Welcome to my page!</h1>
+
+        <div class="flex-container">
+            <div>App 1</div>
+            <div>App 2</div>
+            <div>App 3</div>
+        </div>
+        
+        <p>
+        Click on the links below to find out more!
+        </p>
+        <a href="/aboutme.html">About Me</a>
+        <a href="/portfolio.html">Portfolio</a>
+        <a href="/contactform.html">Contact Form</a>
+    </div>
+    </body>
+</html>
+
+

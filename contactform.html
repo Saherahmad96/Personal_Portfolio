@@ -1,0 +1,68 @@
+<html>
+    
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/contact_form.css" />
+        <script src="contact_form.js"></script>
+        <title>Contact Form</title>
+        <h1>Contact Form</h1>
+
+
+        <style>
+            body{
+                background-color: rgb(181, 201, 204);}
+
+            h1{          
+                text-align:center;           
+                font-size: 45px;
+                font-family: verdana;
+                Color: rgb(52, 51, 90);
+                border: 0.5px;}
+            p{
+                font-size: 30px;
+                Color: rgb(86, 79, 143);}
+        </style>
+
+    </head>
+    
+    <body>
+        <div>
+            <a href="/home.html">Home Page</a>
+            <a href="/portfolio.html">Portfolio</a>
+            <a href="/aboutme.html">About Me</a>
+        </div>
+        <div id="mainform">
+            <form id="form">
+            <p id="returnmessage"></p>
+            <label>Name: <span>*</span></label>
+            <input type="text" id="name" placeholder="Name"/>
+            <label>Phone: <span>*</span></label>
+            <input type="text" id="contact" placeholder="xxx-xxx-xxxx"/>
+            <label>Email: <span>*</span></label>
+            <input type="text" id="email" placeholder="Email"/>
+            <label>Where did you hear about me?</label>
+             <select id = "myList">
+               <option value = "1">Google</option>
+               <option value = "2">Facebook</option>
+             </select>
+            <label>Description:</label>
+            <textarea id="Description" placeholder=""></textarea>
+            <input type="button" id="submit" value="Submit"/>
+            </form>
+            </div>
+    </body>
+    
+
+    <script>
+        var element_text = $(".test").text();  
+
+        $("#example").text(element_text);
+        $("#example").css({"font-size":"25px", "color":"purple"});
+
+        $('#example').click(function() {
+            $("div").remove();
+        });
+    
+    </script> 
+
+</html>
