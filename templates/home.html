@@ -1,22 +1,7 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script>
-        $(document).ready(function(){
-            $(button).click(function(){
-                $("#div1").fadeIn();
-                $("#div2").fadeIn();
-                $("#div3").fadeIn();
-                });
-                });
-        </script>   
-        <script> 
-            $(document).ready(function(){
-              $("#flip").click(function(){
-                $("#panel").slideDown("slow");
-              });
-            });
-        </script>     
+
         <title>Homepage</title>
         <style>
             body{
@@ -59,7 +44,7 @@
         </style>
     </head>
     <body>
-        <button>Click</button><br><br>
+        <button id='ClickBtn'>Click</button id><br><br>
         <div id="div1" style="width:80px;height:80px;display:none;background-color:white;"></div><br>
         <div id="div2" style="width:80px;height:80px;display:none;background-color:black;"></div><br>
         <div id="div3" style="width:80px;height:80px;display:none;background-color:gray;"></div>
@@ -68,23 +53,35 @@
         <div id="panel">Hello!</div>
         
         <div>
-            <id="header" style="position: absolute; top: 10; left: 10; width: 95%;">
             <h1>Welcome to my page!</h1>
 
-        <div class="flex-container">
-            <div>App 1</div>
-            <div>App 2</div>
-            <div>App 3</div>
+            <div class="flex-container">
+                <div>App 1</div>
+                <div>App 2</div>
+                <div>App 3</div>
+            </div>
+            
+            <p>Click on the links below to find out more!</p>
+            <a href="/aboutme.html">About Me</a>
+            <a href="{{ url_for('ShowPortfolio') }}">Portfolio</a>
+            <a href="/contactform.html">Contact Form</a>
         </div>
-        
-        <p>
-        Click on the links below to find out more!
-        </p>
-        <a href="/aboutme.html">About Me</a>
-        <a href="/portfolio.html">Portfolio</a>
-        <a href="/contactform.html">Contact Form</a>
-    </div>
     </body>
+    <script>
+        $('#ClickBtn').off('click').on('click', function(){
+            console.log('HEY ITS ME!');
+            $("#div1").fadeIn();
+            $("#div2").fadeIn();
+            $("#div3").fadeIn();
+        });
+    </script>   
+    <script> 
+        $('document').ready(function(){
+            $("#flip").click(function(){
+            $("#panel").slideDown("slow");
+            });
+        });
+    </script>  
 </html>
 
 
