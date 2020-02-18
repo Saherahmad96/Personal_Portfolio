@@ -2,67 +2,111 @@
     
     <head>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="css/contact_form.css" />
-        <script src="contact_form.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='contactform.js') }}"></script>
         <title>Contact Form</title>
         <h1>Contact Form</h1>
-
-
-        <style>
-            body{
-                background-color: rgb(181, 201, 204);}
-
-            h1{          
-                text-align:center;           
-                font-size: 45px;
-                font-family: verdana;
-                Color: rgb(52, 51, 90);
-                border: 0.5px;}
-            p{
-                font-size: 30px;
-                Color: rgb(86, 79, 143);}
-        </style>
-
     </head>
     
     <body>
-        <div>
-            <a href="/home.html">Home Page</a>
-            <a href="/portfolio.html">Portfolio</a>
-            <a href="/aboutme.html">About Me</a>
-        </div>
-        <div id="mainform">
-            <form id="form">
-            <p id="returnmessage"></p>
-            <label>Name: <span>*</span></label>
-            <input type="text" id="name" placeholder="Name"/>
-            <label>Phone: <span>*</span></label>
-            <input type="text" id="contact" placeholder="xxx-xxx-xxxx"/>
-            <label>Email: <span>*</span></label>
-            <input type="text" id="email" placeholder="Email"/>
-            <label>Where did you hear about me?</label>
-             <select id = "myList">
-               <option value = "1">Google</option>
-               <option value = "2">Facebook</option>
-             </select>
-            <label>Description:</label>
-            <textarea id="Description" placeholder=""></textarea>
-            <input type="button" id="submit" value="Submit"/>
-            </form>
-            </div>
+        <form id="my-form" action="" method="post">
+            <p>
+              <label for="name">Name:</label><br>
+              <input id="name" name="name" minlength="3" placeholder = "Name" type="text" required>
+            </p>
+            <p>
+              <label for="email">Email:</label><br>
+              <input id="email" type="email"  placeholder = "Email" name="email" required>
+            </p>
+            <p>
+              <label for="phone">Phone:</label><br>
+              <input id="phone" type="phone" minlength= "10" placeholder = "xxx-xxx-xxxx" name="phone" required>
+            </p>
+            <p>  
+              <label>Where did you hear about me?</label><br>
+              <select id = "myList">
+                  <option value = "1">Google</option>
+                  <option value = "2">Facebook</option>
+              </select>
+            </p>
+            <p>
+              <label>Description:</label><br>
+              <textarea id="Description" placeholder="Description"></textarea>
+            </p>
+            <p>
+              <input class="submit" type="submit" value="                                                                                              Submit">
+            </p>
+        </form>
+
+        <style>
+
+            input, select, textarea {
+                display: flex;
+                width: 50%; 
+                padding: 12px;  
+                border: 1px solid #ccc; 
+                border-radius: 4px;
+                box-sizing: border-box; 
+                margin: 0 auto; 
+            }
+
+            label{
+                margin-left: 360;
+                margin-right: 360;
+                display: flex;
+                padding: 12px;
+                border-radius: 4px; 
+                box-sizing: border-box;                
+            
+        }
+
+            input[type=submit] {
+                display: flex;                
+                background-color: #4CAF50;
+                color: white;
+                padding: 12px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                position:center
+            }
+
+            .container {
+                text-align: center;
+                position: absolute;
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
+
+
+            }
+
+        </style>
+
     </body>
     
 
     <script>
-        var element_text = $(".test").text();  
+     
+        //    $.ajax({
+        //       url: '/handleContactForm',
+        //        data: payload,
+        //        method: 'GET',
+        //        success: function(data) {
+        //            // Do something here
+        //            console.log(data);
+        //        }
 
-        $("#example").text(element_text);
-        $("#example").css({"font-size":"25px", "color":"purple"});
+        //   });
 
-        $('#example').click(function() {
-            $("div").remove();
-        });
-    
-    </script> 
+                 
+        
+    </script>
+     
+<a href="{{ url_for('Homepage') }}">Home Page</a>
+<a href="{{ url_for('AboutMe') }}">About Me</a>
+<a href="{{ url_for('ShowPortfolio') }}">Portfolio</a>
 
 </html>

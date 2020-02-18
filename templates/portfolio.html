@@ -1,36 +1,18 @@
 <html>
     <head>
-        <script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
-        <title>Portfolio</title>
-        <style>
-            body{
-                background-color: rgb(181, 201, 204);}
-
-            h1{          
-                text-align:center;           
-                font-size: 45px;
-                font-family: verdana;
-                Color: rgb(52, 51, 90);
-                border: 0.5px;}
-            p{
-                font-size: 30px;
-                Color: rgb(86, 79, 143);}
-        
-        </style>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <title>Homepage</title>
     </head>
-<body>
-    <div>
-    <id="header" style="position: absolute; top: 10; left: 10; width: 95%;">
-        <h1>Welcome to my page {{name}}!</h1>
-        <p>
-        Click on the links below to find out more!
-        </p>
-        <a href="/aboutme.html">About Me</a>
-        <a href="/home.html">Home Page</a>
-        <a href="/contactform.html">Contact Form</a>
-    </div>
-</body>
+    <body>
+        <div>
+            <h1>Welcome to my page!</h1>     
+            <p>Click on the links below to find out more!</p>
+            <a href="{{ url_for('Homepage') }}">Home Page</a>
+            <a href="{{ url_for('AboutMe') }}">About Me</a>
+            <a href="{{ url_for('ContactForm') }}">Contact Form</a>
+        </div>
+    </body>
 </html>
 
 
