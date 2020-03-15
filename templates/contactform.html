@@ -3,8 +3,8 @@
     <head>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-        <script type="text/javascript" src="{{ url_for('static', filename='contactform.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/contactform.js') }}"></script>
         <title>Contact Form</title>
         <h1>Contact Form</h1>
     </head>
@@ -24,19 +24,20 @@
               <input id="phone" type="phone" minlength= "10" placeholder = "xxx-xxx-xxxx" name="phone" required>
             </p>
             <p>  
-              <label>Where did you hear about me?</label><br>
+              <label for="place">Where did you hear about me?</label><br>
               <select id = "myList">
                   <option value = "1">Google</option>
                   <option value = "2">Facebook</option>
               </select>
             </p>
             <p>
-              <label>Description:</label><br>
+              <label for="description">Description:</label><br>
               <textarea id="Description" placeholder="Description"></textarea>
             </p>
             <p>
               <input class="submit" type="submit" value="                                                                                              Submit">
             </p>
+        </form>
         </form>
 
         <style>
@@ -87,21 +88,7 @@
 
     </body>
     
-
     <script>
-     
-        //    $.ajax({
-        //       url: '/handleContactForm',
-        //        data: payload,
-        //        method: 'GET',
-        //        success: function(data) {
-        //            // Do something here
-        //            console.log(data);
-        //        }
-
-        //   });
-
-                 
         
     </script>
      

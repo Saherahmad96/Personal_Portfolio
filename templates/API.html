@@ -18,25 +18,22 @@
         var options = {
           zoom:8,
           center:{lat:42.3601,lng:-71.0589}
-          }
-          
-          var map = new google.maps.Map(document.getElementById('map'), options);
-          
-          google.maps.event.addListener(map, 'click', function(event){
-            addMarker({coords:event.latLng});
-            });
-            
-            var markers = [
-              {
-                coords:{lat:42.4668,lng:-70.9495},
+        }
+        
+        var map = new google.maps.Map(document.getElementById('map'), options);
+        google.maps.event.addListener(map, 'click', function(event){
+          addMarker({coords:event.latLng});
+          });
+          var markers = [
+            {
+              coords:{lat:42.4668,lng:-70.9495},
+              }
+              ];
+              
+              for(var i = 0;i < markers.length;i++){
+                addMarker(markers[i]);
                 }
-                ];
-                
-                for(var i = 0;i < markers.length;i++){
-                  addMarker(markers[i]);
-                  }
-                  
-                  function addMarker(props){
+                function addMarker(props){
                     var marker = new google.maps.Marker({
                       position:props.coords,
                       map:map,
@@ -61,5 +58,11 @@
                               <script async defer
                               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPy5d7wOF9QkK7XT1Vt76iFwDs7mHx2g0&callback=initMap">
                               </script>
+                              <table>
+                                <tr>
+                                    <td>Country:</td>
+                                    <td>City:</td>
+                                </tr>
+                            </table>
                               </body>
                               </html>
