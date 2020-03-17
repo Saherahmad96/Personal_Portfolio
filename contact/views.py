@@ -1,7 +1,7 @@
 
 import os, requests
 from flask import Flask, Blueprint, render_template, jsonify, url_for, request, redirect, session
-from ..model import connectToDB
+from model import connectToDB
 
 contact = Blueprint('contact', __name__)
 

@@ -1,15 +1,16 @@
 
 import os, requests
 from flask import Flask, Blueprint, render_template, jsonify, url_for, request, redirect, session
-from apiCalls import getWeatherData
+from .apiCalls import getWeatherData
 
 dashboard = Blueprint('dashboard', __name__, template_folder='templates', static_folder='static')
+
 
 # EXAMPLE | Displays the Python Weather Widget
 @dashboard.route('/showWeatherData', methods=['GET'])
 def showWeatherData():
 	weatherData = getWeatherData()
-	
+    
 	if 'data' in weatherData:
 		weatherData = weatherData['data']
 		return render_template('weatherWidget.html', data=weatherData)
@@ -19,7 +20,7 @@ def showWeatherData():
 
 # EXAMPLE | Displays the AJAX Weather Widget
 @dashboard.route('/showAltWeatherData', methods=['GET'])
-def showWeatherData():
+def showAltWeatherData():
     return render_template('weatherWidget2.html')
 
 # EXAMPLE | Api Route for Getting the weather data

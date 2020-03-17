@@ -1,6 +1,4 @@
-import os, requests, pymongo
 from flask import Flask, Blueprint, render_template, jsonify, url_for, request, redirect, session
-from model import connectToDB
 from dash.views import dashboard
 from contact.views import contact
 
