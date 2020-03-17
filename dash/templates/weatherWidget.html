@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Jinja2 Weather Page</title>
+
+</head>
+<body>
+    <h1>Display current weather</h1>
+
+    <div>
+        <p>Weather Data is:</p>
+        <table style='border:1px solid red;'>
+            {% set counter = 1 %}
+            {% for item in data['currently'] %}
+                <tr>
+                    <td>{{item}}</td>
+                    <td>{{counter}}</td>
+                </tr>
+                {% set counter = counter + 1 %}
+            {% endfor %}
+        </table>
+        
+    </div>
+
+    <br>
+
+    <div>Error</div>
+    <div class='error'>{{error}}</div>
+
+</body>
+</html>

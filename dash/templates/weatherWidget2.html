@@ -3,53 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Page</title>
+    <title>Ajax Weather Page</title>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 </head>
 <body>
-    <h1>Display current news</h1>
+    <h1>Display current weather</h1>
 
-    <div>
-        <p>News Data is:</p>
-        <table style='border:1px solid red;'>
-            {% for item in infodata %}
-                <tr>
-                    <td>{{author}}</td>
-                    <td>{{title}}</td>
-                </tr>
-            {% endfor %}
-        </table>
-        
-    </div>
-
-
-    <div class='AlternateNewsData'></div>
-
-    <br>
-
-    <div>Error</div>
-    <div class='error'>{{error}}</div>
+    <div class='AlternateWeatherData'></div>
 
 </body>
 </html>
 
 <script>
     var BaseURL = window.location.origin;
-    var newsURL = BaseURL + "/altGetNewsData"
+    var weatherURL = BaseURL + "/altGetWeatherData"
 
     $.ajax({
         method:'GET',
-        url: newsURL,
+        url: weatherURL,
         contentType: 'application/json',
         success: function(msg) {
             console.log(msg);
 
-            if ('infodata' in msg) {
-                $('.AlternateNewsData').text(msg['infodata']['author']);
+            if ('data' in msg) {
+                $('.AlternateWeatherData').text(msg['data']['latitude']);
             } else {
-                alert('Failed to load news data!');
+                alert('Failed to load weather data!');
                 $('.error').text(msg['error']);
                 $('.error').css({'color':'red'});
             }
@@ -59,4 +40,5 @@
             alert(error);
         }
     })
+
 </script>
