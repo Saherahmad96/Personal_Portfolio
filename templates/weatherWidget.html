@@ -3,13 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard Page</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 </head>
 <body>
     <h1>Display current weather</h1>
 
-    <div>Weather Data is:</div>
-    <div>{{data}}</div>
+    <div>
+        <p>Weather Data is:</p>
+        <table style='border:1px solid red;'>
+            {% set counter = 1 %}
+            {% for item in data['currently'] %}
+                <tr>
+                    <td>{{item}}</td>
+                    <td>{{counter}}</td>
+                </tr>
+                {% set counter = counter + 1 %}
+            {% endfor %}
+        </table>
+        
+    </div>
+
+
+    <div class='AlternateWeatherData'></div>
 
     <br>
 
@@ -18,3 +36,30 @@
 
 </body>
 </html>
+
+<script>
+    var BaseURL = window.location.origin;
+    var weatherURL = BaseURL + "/altGetWeatherData"
+
+    $.ajax({
+        method:'GET',
+        url: weatherURL,
+        contentType: 'application/json',
+        success: function(msg) {
+            console.log(msg);
+
+            if ('data' in msg) {
+                $('.AlternateWeatherData').text(msg['data']['latitude']);
+            } else {
+                alert('Failed to load weather data!');
+                $('.error').text(msg['error']);
+                $('.error').css({'color':'red'});
+            }
+        }
+        , error: function(error) {
+            console.log(error);
+            alert(error);
+        }
+    })
+
+</script>
