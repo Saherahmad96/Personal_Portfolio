@@ -23,22 +23,10 @@ def showWeatherData():
 def showAltWeatherData():
     return render_template('weatherWidget2.html')
 
-# EXAMPLE | Api Route for Getting the weather data
-@dashboard.route('/altGetWeatherData', methods=['GET'])
-def altGetWeatherData():
-	url = "https://api.darksky.net/forecast/6f5d06c8550c54d468601ad72af413fd/33.9052,-84.0084"
-	
-	#headers = {'content-type':'application/josn', 'authorization':'Bearer AIzaSyBPy5d7wOF9QkK7XT1Vt76iFwDs7mHx2g0'}
+@dashboard.route('/showNewsData', methods=['GET'])
+def showNewsData():
+	return render_template('news.html')
 
-	# Does a GET request to get the weather data
-	r = requests.get(url)
-	print (r.status_code)
-
-	# Checks the request status to see if it pass
-	if r.status_code == 200:
-		apiData = r.json()
-		return jsonify({'data': apiData, 'error':''})
-	else:
-		return jsonify({'error':'Failure to retreive weather data!'})
-
-
+@dashboard.route('/showJobData', methods=['GET'])
+def showJobData():
+	return render_template('jobs.html')
