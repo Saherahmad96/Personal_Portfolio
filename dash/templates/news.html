@@ -5,23 +5,39 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('dashboard.static', filename='style.css') }}">
         <title>News API</title>
     </head>
+    <style>
+        .flex-container{
+            display: flex;
+            flex-direction: column;
+        }
+        .flex-container > div {
+            background-color: #f1f1f1;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+    </style>
     <body>
         <h1>News API</h1>
 
-        <article>
-            <h2>News Article 1</h2>
-            <p>Current events happening today in the United States.</p>
-        </article>
+        <div class="flex-container">
+            <div>
+                <h2>News Article 1</h2>
+                <p>Current events happening today in the United States.</p>
+            </div>
        
-        <article>
-            <h2>News Article 2</h2>
-            <p>Current events happening today in the United States.</p>
-        </article>
+            <div>
+                <h2>News Article 2</h2>
+                <p>Current events happening today in the United States.</p>
+            </div>
         
-        <article>
-            <h2>News Article 3</h2>
-            <p>Current events happening today in the United States.</p>
-        </article>
+            <div>
+                <h2>News Article 3</h2>
+                <p>Current events happening today in the United States.</p>
+            </div>
+        </div>
     </body>
     <script>
         var baseURL = windows.location.origin
