@@ -34,11 +34,6 @@ def altGetWeatherData():
 	else:
 		return jsonify({'error':'Failure to retreive weather data!'})
 
-def newsData():
-	x = requests.get('http://newsapi.org/v2/top-headlines?country=us&apiKey=0a27659cc5a24df2bfdda7d5201f201c')
-	newsData = x.json() 
-	print(newsData)
-
 def jobData():
 	i = requests.get('url')
 	jobData = i.json()

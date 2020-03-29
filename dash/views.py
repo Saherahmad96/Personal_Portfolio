@@ -27,6 +27,13 @@ def showAltWeatherData():
 def showNewsData():
 	return render_template('news.html')
 
+@dashboard.route('/newsData', methods=['GET'])
+def newsData(): 
+	x = requests.get('http://newsapi.org/v2/top-headlines?country=us&apiKey=0a27659cc5a24df2bfdda7d5201f201c')
+	newsData = x.json() 
+	print(newsData)
+	return jsonify(newsData)
+
 @dashboard.route('/showJobData', methods=['GET'])
 def showJobData():
 	return render_template('jobs.html')

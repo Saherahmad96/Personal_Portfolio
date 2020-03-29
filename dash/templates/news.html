@@ -39,16 +39,34 @@
         </div>
     </body>
     <script>
-        var baseURL = windows.location.origin
+        var baseURL = window.location.origin
         var news_URL = baseURL + '/newsData'
 
         $.ajax({
             method: 'GET',
             url: news_URL,
-            success: function(msg){
-                console.log(msg);
-                $('.newsData').text(msg['author']['title']['description']['publishedAt']['content']);          
-        }
+            success: function(data){
+                console.log(data);
+                var mainData = data['articles'];
+                
+                var newsContainer = "";
+
+                for(var i=0; i < mainData.length; i++){
+                    console.log(mainData[i]);
+
+                    var currentAuthor = mainData[i]['author'];
+                    var currentSource = mainData[i]['source'];
+
+                    newsContainer += '<div>'+  mainData[i]['author'] + '</div>';
+    
+                }
+
+                $('.flex-container').html();
+            }, 
+            error:function(error){
+                console.log(error);s
+            }        
+            });
 
     </script>
     
